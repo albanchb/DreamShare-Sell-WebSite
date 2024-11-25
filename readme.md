@@ -1,4 +1,4 @@
-# Site de Promotion pour Application Mobile
+# Site de Promotion pour DreamShare
 
 Bienvenue dans ce repository contenant le site de promotion pour notre application mobile ! Ce site présente les fonctionnalités principales de l'app et permet aux utilisateurs d'en savoir plus avant de télécharger ou d'acheter l'application.
 
