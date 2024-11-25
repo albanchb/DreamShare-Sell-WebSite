@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamShare - L'App de Partage de Rêves</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+<body>
+    <style>
+.pricing {
+    padding: 8rem 2rem;
+    background: #0a0a1a;
+    text-align: center;
+    position: relative;
+}
+
+.pricing::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #a78bfa, transparent);
+}
+
+.pricing-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.pricing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, #fff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.price-card {
+    max-width: 400px;
+    margin: 0 auto;
+    background: rgba(167, 139, 250, 0.05);
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(167, 139, 250, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(167, 139, 250, 0.3);
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.1);
+}
+
+.ownership-badge {
+    position: absolute;
+    top: 1rem;
+    right: -2rem;
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    color: white;
+    padding: 0.5rem 3rem;
+    transform: rotate(45deg);
+    font-size: 0.875rem;
+    font-weight: 600;
+    z-index: 1;
+}
+
+.price-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.price {
+    font-size: 3.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.price::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+}
+
+.benefits {
+    list-style: none;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.benefits li {
+    margin-bottom: 1rem;
+    color: #a78bfa;
+    opacity: 0.9;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.benefits li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #60a5fa;
+}
+
+.buy-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.buy-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+.buy-button:hover::before {
+    left: 100%;
+}
+
+.buy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(167, 139, 250, 0.2);
+    border-color: rgba(167, 139, 250, 0.5);
+}
+
+.ownership-note {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #a78bfa;
+    opacity: 0.8;
+}
+
+.contact {
+    padding: 8rem 2rem;
+    background: linear-gradient(to bottom, #0a0a1a, #080816);
+    position: relative;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #a78bfa, transparent);
+}
+
+.contact-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, #fff, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(167, 139, 250, 0.05);
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(167, 139, 250, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(167, 139, 250, 0.3);
+    box-shadow: 0 20px 40px rgba(167, 139, 250, 0.1);
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-link {
+    color: #a78bfa;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #60a5fa;
+}
+
+.contact-description {
+    color: #a78bfa;
+    opacity: 0.9;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #080816;
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(167, 139, 250, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-logo span {
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+    </style>
+    <header>
+        <nav>
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sparkles">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                </svg>
+                <span>DreamShare</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#apercu">Aperçu</a></li>
+                <li><a href="#fonctionnalites">Fonctionnalités</a></li>
+                <li><a href="#prix">Acheter</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-right">
+            <div class="pwa-badge">Application Web Progressive</div>
+            <h1>Capturez et Partagez<br>Vos Rêves</h1>
+            <p>L'application révolutionnaire qui transforme vos rêves en expériences sociales uniques</p>
+            <div class="hero-cta">
+                <a href="#prix" class="cta-button">Acheter pour 5000€</a>
+                <p class="hero-price">Prix unique - Devenez propriétaire</p>
+            </div>
+            <div class="pwa-features">
+                <div class="pwa-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10" />
+                    </svg>
+                    <span>Sécurisé</span>
+                </div>
+                <div class="pwa-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 19l7-7 3 3-7 7-3-3z" />
+                        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" />
+                        <path d="M2 2l7.586 7.586" />
+                        <circle cx="11" cy="11" r="2" />
+                    </svg>
+                    <span>Installation Rapide</span>
+                </div>
+                <div class="pwa-feature">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                        <line x1="8" y1="21" x2="16" y2="21" />
+                        <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    <span>Multi-Plateforme</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image" data-aos="fade-up">
+            <div class="phone-container">
+                <img src="3.PNG" alt="DreamShare App Interface" class="phone-mockup">
+
+            </div>
+            <div class="hero-image-overlay"></div>
+        </div>
+    </section>
+
+    <section id="apercu" class="app-preview">
+        <h2 data-aos="fade-up">Une Interface Intuitive et Élégante</h2>
+        <div class="preview-grid">
+            <div class="preview-item" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=800" alt="Journal des rêves" class="preview-image">
+                <h3>Journal des Rêves</h3>
+                <p>Enregistrez vos rêves avec des détails riches et des émotions</p>
+            </div>
+            <div class="preview-item" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1573152958734-1922c188fba3?auto=format&fit=crop&q=80&w=800" alt="Analyse des Rêves" class="preview-image">
+                <h3>Analyse Avancée</h3>
+                <p>Découvrez les patterns et significations de vos rêves</p>
+            </div>
+            <div class="preview-item" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&q=80&w=800" alt="Communauté" class="preview-image">
+                <h3>Communauté Active</h3>
+                <p>Partagez et explorez les rêves d'une communauté mondiale</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="fonctionnalites" class="features">
+        <h2 data-aos="fade-up">Fonctionnalités Exceptionnelles</h2>
+        <div class="features-grid">
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="100">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                    </svg>
+                </div>
+                <h3>Journal Intelligent</h3>
+                <p>Enregistrement vocal, texte et dessins pour capturer chaque détail</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="200">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                </div>
+                <h3>IA Prédictive</h3>
+                <p>Analyse des patterns et suggestions personnalisées</p>
+            </div>
+            <div class="feature-card" data-aos="zoom-in" data-aos-delay="300">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <h3>Communauté Privée</h3>
+                <p>Partagez en toute sécurité avec des rêveurs du monde entier</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prix" class="pricing">
+        <div class="pricing-content">
+            <h2 data-aos="fade-up">Devenez Propriétaire de DreamShare</h2>
+            <div class="price-card" data-aos="zoom-in">
+                <div class="ownership-badge">Propriété Exclusive</div>
+                <h3>Application Complète</h3>
+                <div class="price">5000 €</div>
+                <ul class="benefits">
+                    <li>Propriété totale de l'application</li>
+                    <li>Code source complet</li>
+                    <li>Droits de revente</li>
+                    <li>Support technique 6 mois</li>
+                    <li>Formation incluse</li>
+                    <li>Documentation complète</li>
+                </ul>
+                <a href="#contact" class="buy-button">Devenir Propriétaire</a>
+                <p class="ownership-note">Une fois propriétaire, l'application vous appartient à 100%</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-content">
+            <h2 data-aos="fade-up">Contactez-nous</h2>
+            <div class="contact-card" data-aos="zoom-in">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        <a href="mailto:contact@dreamshare.fr" class="contact-link">contact@dreamshare.fr</a>
+                    </div>
+                    <p class="contact-description">
+                        Prêt à devenir propriétaire de DreamShare ? Contactez-nous pour plus d'informations sur l'acquisition et le processus de transfert.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+                </svg>
+                <span>DreamShare</span>
+            </div>
+            <p>&copy; 2024 DreamShare. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
